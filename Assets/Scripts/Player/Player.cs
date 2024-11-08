@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -126,7 +127,7 @@ public class Player : MonoBehaviour
         {
             Destroy(corazon[0].gameObject);
             this.gameObject.SetActive(false);
-
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
