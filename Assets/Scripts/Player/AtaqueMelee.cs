@@ -43,6 +43,9 @@ public class AtaqueMelee : MonoBehaviour
             if (colisionador.CompareTag("Enemy"))
             {
                 colisionador.transform.GetComponent<Enemy>().TomarDaño(dañoGolpe);
+            }else if (colisionador.CompareTag("EnemyFly"))
+            {
+                colisionador.transform.GetComponent<EnemyFly>().TomarDaño(dañoGolpe);
             }
         }
 
