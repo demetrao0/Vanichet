@@ -20,5 +20,10 @@ public class Bala : MonoBehaviour
             other.GetComponent<Enemy>().TomarDaño(dano);
             Destroy(gameObject);
         }
+        if (other.CompareTag("EnemyFly"))
+        {
+            other.GetComponent<EnemyFly>().TomarDaño(dano);
+            Destroy(gameObject);
+        }
     }
 }
