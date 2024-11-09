@@ -130,7 +130,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-
+  
 
 
     void OnDestroy()
