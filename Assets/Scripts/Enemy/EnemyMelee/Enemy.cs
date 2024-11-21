@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         isGroundFloor = (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - FloorCheckY, transform.position.z),
             new Vector3(movHor, 0, 0), frontGrndRayDist, groundLayer));
 
-        if (!isGroundFloor)
+        if (isGroundFloor)
         {
             movHor = movHor * -1;
 

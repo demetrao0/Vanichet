@@ -14,6 +14,8 @@ public class Estrella : MonoBehaviour
             puntaje.SumarPuntos(cantidadPuntos);
             Debug.Log("Tomaste 1 estrella");
             Destroy(gameObject);
+
+
         }
     }
 }

@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     {
         movHor = Input.GetAxisRaw("Horizontal");
         isMoving = (movHor != 0f);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1)  )
             Jump();
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGorunded);
