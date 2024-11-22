@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public static Player obj;
 
-    public GameObject[] corazon; 
+    public GameObject[] corazon;
 
     public int lives = 3;
 
@@ -21,17 +21,17 @@ public class Player : MonoBehaviour
     public bool verDer = true;
 
     public LayerMask groundLayer;
-  
+
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spr;
-    
+
 
     void Awake()
     {
 
         obj = this;
-       
+
     }
 
     // Start is called before the first frame update
@@ -49,16 +49,17 @@ public class Player : MonoBehaviour
     {
         movHor = Input.GetAxisRaw("Horizontal");
         isMoving = (movHor != 0f);
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1)  )
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             Jump();
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGorunded);
         if (movHor > 0 && !verDer)
         {
 
-        Flip();
+            Flip();
 
-        }else if(movHor < 0 && verDer)
+        }
+        else if (movHor < 0 && verDer)
         {
             Flip();
         }
@@ -78,13 +79,13 @@ public class Player : MonoBehaviour
         {
             Destroy(corazon[2].gameObject);
         }
-        
+
     }
 
     void Jump()
     {
         if (!isGorunded) return;
-        rb.velocity = Vector2.up * jumpForce ;
+        rb.velocity = Vector2.up * jumpForce;
     }
 
     void FixedUpdate()
@@ -94,7 +95,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (((1<< collision.gameObject.layer) & groundLayer) != 0)
+        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
         {
             isGorunded = true;
         }
@@ -102,7 +103,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (((1 << collision.gameObject.layer) & groundLayer) !=0)
+        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
         {
             isGorunded = false;
         }
@@ -120,7 +121,7 @@ public class Player : MonoBehaviour
         verDer = !verDer;
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
     }
-     public void getDamage()
+    public void getDamage()
     {
         lives--;
         if (lives <= 0)
@@ -130,7 +131,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-  
+
 
 
     void OnDestroy()
