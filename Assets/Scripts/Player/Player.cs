@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
     private SpriteRenderer spr;
 
 
+
+
+
     void Awake()
     {
 
@@ -51,6 +54,10 @@ public class Player : MonoBehaviour
         isMoving = (movHor != 0f);
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             Jump();
+
+
+
+
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGorunded);
         if (movHor > 0 && !verDer)
@@ -86,6 +93,7 @@ public class Player : MonoBehaviour
     {
         if (!isGorunded) return;
         rb.velocity = Vector2.up * jumpForce;
+        
     }
 
     void FixedUpdate()
